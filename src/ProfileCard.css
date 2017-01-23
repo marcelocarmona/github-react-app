@@ -1,0 +1,56 @@
+.profile-card {
+    background: white;
+    border: 1px solid #afa7a7;
+    box-shadow: 1px 3px 3px #afa7a7;
+}
+
+.profile-card__avatar {
+    width: 150px;
+    height: 150px;
+    margin: 20px;
+    border-radius: 50%;
+    border: 2px solid #afa7a7;
+}
+
+.profile-card__name {
+    padding: 0;
+    margin: 6px;
+    font-size: x-large;
+}
+
+.profile-card__location {
+    font-size: small;
+}
+
+.profile-card__info {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+    padding: 10px;
+    border-top: 1px solid rgba(175, 167, 167, 0.5);
+}
+
+.profile-card__info__title {
+    font-size: 11px;
+    margin-bottom: 6px;
+}
+
+.profile-card__info__count {
+    
+}
+
+.profile-card__link {
+    padding: 8px;
+}
+
+.profile-card__link a,
+.profile-card__link a:active,
+.profile-card__link a:visited {
+    background: blueviolet;
+    display: block;
+    border-radius: 3px;
+    padding: 6px;
+    font-size: initial;
+    color: white;
+    text-decoration: none;
+}

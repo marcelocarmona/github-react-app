@@ -1,0 +1,11 @@
+.search-box {
+
+}
+
+.search-box input {
+    width: 100%;
+    border: 1px solid #afa7a7;
+    margin: 10px 0;
+    padding: 5px;
+    font-size: large;
+}

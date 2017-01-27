@@ -32,3 +32,12 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+.repo-list {
+  list-style: none;
+  margin: 10px;
+  display: flex;
+  justify-content: space-around;
+  background: white;
+  box-shadow: 1px 1px 1px wheat;
+}

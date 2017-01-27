@@ -5,6 +5,17 @@ import SearchProfile from './SearchProfile';
 import ProfileCard from './ProfileCard';
 
 
+function RepoList(props) {
+  const listItem = props.repos.map(repo => (
+    <li key={repo.id} className="repo-list">
+      <div>{repo.name}</div>
+      <div>{repo.language}</div>
+      <div>{repo.updated_at}</div>
+    </li>
+  ));
+  return (<ul>{listItem}</ul>)
+}
+
 class App extends Component {
 
   constructor() {
@@ -18,7 +29,8 @@ class App extends Component {
       followers: '',
       following:'',
       homeUrl:'',
-      notFound:''
+      notFound:'',
+      my_repos:[{id:'1', name: 'inicio'}],
     }
   }
 
@@ -42,6 +54,17 @@ class App extends Component {
       .catch((error) => console.log('Oops! . There Is A Problem'))
   }
 
+  fetchRepos() {
+    const username = this.state.username;
+    let url = `https://api.github.com/users/${username}/repos`;
+    fetch(url)
+      .then((res) => res.json())
+      .then((data) => {
+        this.setState({my_repos: data})
+      })
+      .catch((error) => console.log('Oops! . repos problem  '))
+  }
+
   componentDidMount() {
     this.fetchProfile(this.state.username)
   }
@@ -55,11 +78,14 @@ class App extends Component {
         </header>
         <div className="App__main">
           <SearchProfile fetchProfile={ this.fetchProfile.bind(this) }></SearchProfile>
-          <ProfileCard profile={ this.state }></ProfileCard>
+          <ProfileCard profile={ this.state }
+                       fetchRepos={ this.fetchRepos.bind(this)}></ProfileCard>
         </div>
         <footer className="App__footer">
           <a href="https://twitter.com/carmonamarcelo" target="_blank"> @carmonamarcelo</a>
         </footer>
+        <a onClick={ this.fetchRepos.bind(this) }>buscar repos</a>
+        <RepoList repos={this.state.my_repos}></RepoList>
       </div>
     );
   }

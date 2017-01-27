@@ -3,12 +3,6 @@ import './ProfileCard.css';
 
 class ProfileCard extends Component {
 
-  searchUser(e) {
-    if (e.key === 'Enter' && e.target.value) {
-      this.fetchProfile(e.target.value)
-    }
-  }
-
   render() {
     if (this.props.profile.notFound === 'Not Found') {
       return (
@@ -25,7 +19,7 @@ class ProfileCard extends Component {
           <div className="profile-card__location">{this.props.profile.location}</div>
           <div className="profile-card__info">
             <div>
-              <div className="profile-card__info__title">Repos</div> 
+              <div className="profile-card__info__title"><a onClick={this.props.fetchRepos}>Repos</a></div> 
               <div className="profile-card__info__count">{this.props.profile.repos}</div>
             </div>
             <div>

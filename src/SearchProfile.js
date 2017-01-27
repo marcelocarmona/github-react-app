@@ -2,9 +2,6 @@ import React, { Component } from 'react';
 import './SearchProfile.css';
 
 class SearchProfile extends Component {
-    constructor() {
-      super()
-    }
 
     handleForm(e) {
       e.preventDefault();

@@ -13,7 +13,7 @@ function RepoList(props) {
       <div>{repo.updated_at}</div>
     </li>
   ));
-  return (<ul>{listItem}</ul>)
+  return (<ul className="repos">{listItem}</ul>)
 }
 
 class App extends Component {
@@ -30,7 +30,7 @@ class App extends Component {
       following:'',
       homeUrl:'',
       notFound:'',
-      my_repos:[{id:'1', name: 'inicio'}],
+      my_repos:[],
     }
   }
 
@@ -84,7 +84,6 @@ class App extends Component {
         <footer className="App__footer">
           <a href="https://twitter.com/carmonamarcelo" target="_blank"> @carmonamarcelo</a>
         </footer>
-        <a onClick={ this.fetchRepos.bind(this) }>buscar repos</a>
         <RepoList repos={this.state.my_repos}></RepoList>
       </div>
     );

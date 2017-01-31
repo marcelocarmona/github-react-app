@@ -19,7 +19,7 @@ class ProfileCard extends Component {
           <div className="profile-card__location">{this.props.profile.location}</div>
           <div className="profile-card__info">
             <div>
-              <div className="profile-card__info__title"><a onClick={this.props.fetchRepos}>Repos</a></div> 
+              <div className="profile-card__info__title"><a href="#" onClick={this.props.fetchRepos}>Repos</a></div> 
               <div className="profile-card__info__count">{this.props.profile.repos}</div>
             </div>
             <div>

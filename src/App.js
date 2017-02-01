@@ -85,6 +85,7 @@ class App extends Component {
           <a href="https://twitter.com/carmonamarcelo" target="_blank"> @carmonamarcelo</a>
         </footer>
         <RepoList repos={this.state.my_repos}></RepoList>
+        {this.props.children}
       </div>
     );
   }

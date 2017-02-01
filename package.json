@@ -7,7 +7,8 @@
   },
   "dependencies": {
     "react": "^15.4.2",
-    "react-dom": "^15.4.2"
+    "react-dom": "^15.4.2",
+    "react-router": "^3.0.2"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -16,9 +17,9 @@
     "eject": "react-scripts eject",
     "deploy": "npm run build&&gh-pages -d build"
   },
-  "repository" : { 
-    "type" : "git",
-    "url" : "https://github.com/marcelocarmona/github-react-app.git"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/marcelocarmona/github-react-app.git"
   },
   "homepage": "https://marcelocarmona.github.io/github-react-app"
 }

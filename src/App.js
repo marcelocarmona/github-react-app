@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import SearchProfile from './SearchProfile';
-import ProfileCard from './ProfileCard';
+import SearchProfile from './components/SearchProfile';
+import ProfileCard from './components/ProfileCard';
 
 
 function RepoList(props) {

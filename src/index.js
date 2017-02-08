@@ -13,8 +13,10 @@ function Repos(props) {
   //     <div>{repo.updated_at}</div>
   //   </li>
   // ));
-  const listItem = <li>Probando repos</li>
-  return (<ul className="repos">{listItem}</ul>)
+  const listItem = <li>Probando repos {props.params.repoId}</li>
+  return (
+    <ul className="repos">{listItem}</ul>
+  )
 }
 
 
@@ -22,6 +24,7 @@ ReactDOM.render(
   <Router history={browserHistory}>
     <Route path="/" component={App}>
       <Route path="repos" component={Repos}/>
+      <Route path="repos/:repoId" component={Repos}/>
     </Route>
   </Router>,
   document.getElementById('root')

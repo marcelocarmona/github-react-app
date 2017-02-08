@@ -76,16 +76,20 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h2>Github user search with React</h2>
         </header>
-        <div className="App__main">
-          <SearchProfile fetchProfile={ this.fetchProfile.bind(this) }></SearchProfile>
-          <ProfileCard profile={ this.state }
+        <main className="App__main">
+          <div className="App__main__master">
+            <SearchProfile fetchProfile={ this.fetchProfile.bind(this) }></SearchProfile>
+            <ProfileCard profile={ this.state }
                        fetchRepos={ this.fetchRepos.bind(this)}></ProfileCard>
-        </div>
+          </div>
+          <div className="App__main__detail">
+            {this.props.children}
+          </div>
+        </main>
         <footer className="App__footer">
           <a href="https://twitter.com/carmonamarcelo" target="_blank"> @carmonamarcelo</a>
         </footer>
         <RepoList repos={this.state.my_repos}></RepoList>
-        {this.props.children}
       </div>
     );
   }

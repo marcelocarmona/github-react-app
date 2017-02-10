@@ -29,6 +29,10 @@
   margin-left: 3px;
   background: rgba(255, 255, 255, 0.15);
   border: 1px solid #afa7a7;
+  min-width: 250px;
+  margin-top: 53px;
+  overflow-y: scroll;
+  max-height: 377px;
 }
 
 .App__footer {

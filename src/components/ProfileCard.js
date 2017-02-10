@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './ProfileCard.css';
+import { Link } from 'react-router';
 
 class ProfileCard extends Component {
 
@@ -19,15 +20,15 @@ class ProfileCard extends Component {
           <div className="profile-card__location">{this.props.profile.location}</div>
           <div className="profile-card__info">
             <div>
-              <div className="profile-card__info__title"><a href="#" onClick={this.props.fetchRepos}>Repos</a></div> 
+              <div className="profile-card__info__title"><Link to={`repos`}>Repos</Link></div> 
               <div className="profile-card__info__count">{this.props.profile.repos}</div>
             </div>
             <div>
-              <div className="profile-card__info__title">Followers</div>
+              <div className="profile-card__info__title"><Link to={`followers`}>Followers</Link></div>
               <div className="profile-card__info__count">{this.props.profile.followers}</div>
             </div> 
             <div>
-              <div className="profile-card__info__title">Following</div>
+              <div className="profile-card__info__title"><Link to={`following`}>Following</Link></div>
               <div className="profile-card__info__count">{this.props.profile.following}</div>
             </div>
           </div>

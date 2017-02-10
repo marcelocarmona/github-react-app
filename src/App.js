@@ -5,16 +5,7 @@ import SearchProfile from './components/SearchProfile';
 import ProfileCard from './components/ProfileCard';
 
 
-function RepoList(props) {
-  const listItem = props.repos.map(repo => (
-    <li key={repo.id} className="repo-list">
-      <div>{repo.name}</div>
-      <div>{repo.language}</div>
-      <div>{repo.updated_at}</div>
-    </li>
-  ));
-  return (<ul className="repos">{listItem}</ul>)
-}
+
 
 class App extends Component {
 
@@ -89,7 +80,6 @@ class App extends Component {
         <footer className="App__footer">
           <a href="https://twitter.com/carmonamarcelo" target="_blank"> @carmonamarcelo</a>
         </footer>
-        <RepoList repos={this.state.my_repos}></RepoList>
       </div>
     );
   }

@@ -69,7 +69,7 @@ class App extends Component {
         </header>
         <main className="App__main">
           <div className="App__main__master">
-            <SearchProfile fetchProfile={ this.fetchProfile.bind(this) }></SearchProfile>
+            <SearchProfile onSearch={ this.fetchProfile.bind(this) }></SearchProfile>
             <ProfileCard profile={ this.state }
                        fetchRepos={ this.fetchRepos.bind(this)}></ProfileCard>
           </div>

@@ -1,13 +1,16 @@
 import React, { Component } from 'react';
 import './SearchProfile.css';
+import { browserHistory } from 'react-router';
+
 
 class SearchProfile extends Component {
 
     handleForm(e) {
       e.preventDefault();
       let username = this.refs.username.value
-      this.props.fetchProfile(username);
+      this.props.onSearch(username);
       this.refs.username.value = '';
+      browserHistory.push('/');
     }
 
    render() {

@@ -74,7 +74,7 @@ class App extends Component {
                        fetchRepos={ this.fetchRepos.bind(this)}></ProfileCard>
           </div>
           <div className="App__main__detail">
-            {this.props.children}
+            {this.props.children && React.cloneElement(this.props.children, {user: this.state.username})}
           </div>
         </main>
         <footer className="App__footer">

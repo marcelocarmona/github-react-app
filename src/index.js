@@ -29,7 +29,7 @@ ReactDOM.render(
     <Route path="/" component={App}>
       <Route path="repos" component={() => <RepoList repos={losRepos} />}/>
       <Route path="followers" component={FollowerList}/>
-      <Route path="following" component={() => <FollowingList user={theUser} />}/>
+      <Route path="following" component={FollowingList}/>
     </Route>
   </Router>,
   document.getElementById('root')

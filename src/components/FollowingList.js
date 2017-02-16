@@ -1,43 +1,46 @@
 import React from 'react';
 
-let followings = [{login:'nada'}];
-
-function fetchFollowing() {
-  // const username = this.state.username;
-  let url = `https://api.github.com/users/${this.props.user}/following`;
-  fetch(url)
-    .then((res) => res.json())
-    .then((data) => {
-      followings = data;
-      // this.setState({my_repos: data})
-    })
-    .catch((error) => console.log('Oops! . repos problem  '))
-};
-
 export default class FollowingList extends React.Component {
 
   constructor() {
     super();
-    this.state = {my_repos:'nada'};
+    this.state = {
+      following: [],
+      isFetching: false, 
+      fetchingError: false,
+    };
   }
   
-  componentWillMount() {
-    // const username = this.state.username;
+  componentDidMount() {
     let url = `https://api.github.com/users/${this.props.user}/following`;
+    this.setState({isFetching: true});
     fetch(url)
       .then((res) => res.json())
       .then((data) => {
-        followings = data;
-        this.setState({my_repos: data})
+        this.setState({following: data, isFetching: false})
       })
-      .catch((error) => console.log('Oops! . repos problem  '))
+      .catch((error) => this.setState({isFetching: false, fetchingError: true}))
   }
   
-  render(){
-    return (
-      <ul>
-        <li>{this.state.my_repos[0].login}</li>
-      </ul>
-    )
+  render() {
+    if(this.state.isFetching) {
+      return (
+        <div>Loading...</div>
+      )
+    } else if(this.state.fetchingError) {
+        return (
+          <div>ERROR!!!</div>
+        )
+      } else if(this.state.following.length > 0) {
+          return (
+            <ul>
+              {this.state.following.map( repo => <li key={repo.id}>{repo.login}</li>)}
+            </ul>
+          )
+        } else {
+          return (
+            <div>No estas siguiendo a nadie</div>
+          )
+        }
   }
 }

@@ -1,4 +1,5 @@
 import React from 'react';
+import {String} from 'react-motion';
 
 export default class FollowingList extends React.Component {
 
@@ -37,9 +38,11 @@ export default class FollowingList extends React.Component {
           )
         } else {
           return (
-            <ul>
-              {this.state.following.map( repo => <li key={repo.id}>{repo.login}</li>)}
-            </ul>
+            <Spring defautValue={0} endValue={360} >
+              <ul>
+                {val => this.state.following.map( repo => <li key={repo.id}>{repo.login}</li>)}
+              </ul>
+            </Spring>
           )
         }
   }

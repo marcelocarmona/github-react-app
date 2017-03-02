@@ -11,14 +11,12 @@ let losRepos;
 let theUser;
 
 function fetchRepos(user) {
-  // const username = this.state.username;
   let url = `https://api.github.com/users/${user}/repos`;
   fetch(url)
     .then((res) => res.json())
     .then((data) => {
       losRepos = data;
       theUser = user;
-      // this.setState({my_repos: data})
     })
     .catch((error) => console.log('Oops! . repos problem  '))
 };

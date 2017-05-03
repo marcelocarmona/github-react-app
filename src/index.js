@@ -8,7 +8,6 @@ import FollowerList from './components/FollowerList';
 import FollowingList from './components/FollowingList';
 
 let losRepos;
-let theUser;
 
 function fetchRepos(user) {
   let url = `https://api.github.com/users/${user}/repos`;
@@ -16,7 +15,6 @@ function fetchRepos(user) {
     .then((res) => res.json())
     .then((data) => {
       losRepos = data;
-      theUser = user;
     })
     .catch((error) => console.log('Oops! . repos problem  '))
 };

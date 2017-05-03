@@ -1,5 +1,4 @@
 import React from 'react';
-import {String} from 'react-motion';
 
 export default class FollowingList extends React.Component {
 
@@ -7,11 +6,11 @@ export default class FollowingList extends React.Component {
     super();
     this.state = {
       following: [],
-      isFetching: false, 
+      isFetching: false,
       fetchingError: false,
     };
   }
-  
+
   componentDidMount() {
     let url = `https://api.github.com/users/${this.props.user}/following`;
     this.setState({isFetching: true});
@@ -22,7 +21,7 @@ export default class FollowingList extends React.Component {
       })
       .catch((error) => this.setState({isFetching: false, fetchingError: true}))
   }
-  
+
   render() {
     if(this.state.isFetching) {
       return (
@@ -38,11 +37,12 @@ export default class FollowingList extends React.Component {
           )
         } else {
           return (
-            <Spring defautValue={0} endValue={360} >
+            <div>
+              <h1>Following</h1>
               <ul>
-                {val => this.state.following.map( repo => <li key={repo.id}>{repo.login}</li>)}
+                {this.state.following.map( user => <li key={user.id}>{user.login}</li>)}
               </ul>
-            </Spring>
+            </div>
           )
         }
   }

@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import SearchProfile from './components/SearchProfile';
 import ProfileCard from './components/ProfileCard';
+import {Motion, spring} from 'react-motion';
 
 
 
@@ -60,27 +61,45 @@ class App extends Component {
     this.fetchProfile(this.state.username)
   }
 
+  /**
+   * Reander a animation with react motion
+   * @param {*} element
+   */
+  animation(element){
+   return(<Motion defaultStyle={{opacity: 0}} style={{opacity: spring(1, {stiffness: 120, damping: 80})}}>
+            {interpolatingStyle =>
+              <div style={interpolatingStyle} >
+                  {element}
+              </div>}
+          </Motion>)
+  }
+
   render() {
     return (
       <div className="App">
+
         <header className="App__header">
           <img src={logo} className="App-logo" alt="logo" />
           <h2>Github user search with React</h2>
         </header>
-        <main className="App__main">
-          <div className="App__main__master">
-            <SearchProfile onSearch={ this.fetchProfile.bind(this) }></SearchProfile>
-            <ProfileCard profile={ this.state }
-                       fetchRepos={ this.fetchRepos.bind(this)}></ProfileCard>
-          </div>
-          <div className="App__main__detail">
-            {this.props.children && React.cloneElement(this.props.children, {user: this.state.username})}
-          </div>
-        </main>
+        {this.animation(
+          <main className="App__main">
+            <div className="App__main__master">
+              <SearchProfile onSearch={ this.fetchProfile.bind(this) }></SearchProfile>
+              <ProfileCard profile={ this.state }
+                        fetchRepos={ this.fetchRepos.bind(this)}></ProfileCard>
+            </div>
+            <div className="App__main__detail">
+              {this.props.children && React.cloneElement(this.props.children, {user: this.state.username})}
+            </div>
+          </main>
+        )}
         <footer className="App__footer">
           <a href="https://twitter.com/carmonamarcelo" target="_blank"> @carmonamarcelo</a>
         </footer>
+
       </div>
+
     );
   }
 }

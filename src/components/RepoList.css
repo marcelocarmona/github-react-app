@@ -1,0 +1,40 @@
+.repos {
+  padding: 0;
+  margin: 0;
+}
+
+.repo-list {
+  list-style: none;
+  margin: 1px;
+  padding: 3px 10px 20px;
+  background: white;
+}
+
+li.repo-list:hover {
+    background: rgba(138, 43, 226, 0.1);
+    cursor: pointer;
+}
+
+.repo-list__name {
+  font-size: x-large;
+  color: #8a2ce2;
+}
+
+.repo-list__title {
+  display: flex;
+  justify-content: space-between;
+}
+
+.repo-list__title__updated-at {
+  text-align: right;
+  color: #6d6d6d;
+  font-size: small;
+  margin: 5px;
+}
+
+.repo-list__title__language {
+  text-align: right;
+  color: #6d6d6d;
+  font-size: small;
+  margin: 5px;
+}
